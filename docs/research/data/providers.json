@@ -1,0 +1,299 @@
+[
+  {
+    "id": "intuitive-machines",
+    "name": "Intuitive Machines",
+    "headquarters": "Houston, Texas",
+    "foundedYear": 2013,
+    "status": "awarded",
+    "statusLabel": "Active Contractor (Flight Proven)",
+    "stockTicker": "NASDAQ: LUNR",
+    "landers": [
+      {
+        "name": "Nova-C",
+        "payloadCapacityKg": 130,
+        "propulsionType": "Cryogenic Liquid Methane / Liquid Oxygen (Methalox)",
+        "heritage": "Flew IM-1 (Odysseus); manifested on IM-2, IM-3, IM-4"
+      },
+      {
+        "name": "Nova-D",
+        "payloadCapacityKg": 750,
+        "propulsionType": "Multi-engine Methalox",
+        "heritage": "Manifested on CT-4"
+      }
+    ],
+    "awardedTaskOrders": ["TO2-IM", "PRIME-1", "CP-11", "CP-22", "CT-4"],
+    "totalAwardValue": "$430M+",
+    "historicalAccomplishment": "First commercial spacecraft to achieve a lunar soft landing (IM-1 Odysseus, Feb 22, 2024); first US moon landing in 52 years.",
+    "websiteUrl": "https://www.intuitivemachines.com"
+  },
+  {
+    "id": "firefly",
+    "name": "Firefly Aerospace",
+    "headquarters": "Cedar Park, Texas",
+    "foundedYear": 2017,
+    "status": "awarded",
+    "statusLabel": "Active Contractor (Flight Proven)",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Blue Ghost 1",
+        "payloadCapacityKg": 155,
+        "propulsionType": "Storable Hypergolic Bi-propellant",
+        "heritage": "Flew TO19D (Mare Crisium)"
+      },
+      {
+        "name": "Blue Ghost 2 & OTV",
+        "payloadCapacityKg": 200,
+        "propulsionType": "Bi-propellant with Orbital Transfer Stage",
+        "heritage": "Manifested on CS-3/4 (Far Side)"
+      },
+      {
+        "name": "Blue Ghost 3 / 4",
+        "payloadCapacityKg": 155,
+        "propulsionType": "Bi-propellant",
+        "heritage": "Manifested on CP-21, CS-6"
+      }
+    ],
+    "awardedTaskOrders": ["TO19D", "CS-3/4", "CP-21", "CS-6"],
+    "totalAwardValue": "$320M+",
+    "historicalAccomplishment": "Delivered 10 NASA science payloads to Mare Crisium—the largest single scientific payload manifest in CLPS history.",
+    "websiteUrl": "https://fireflyspace.com"
+  },
+  {
+    "id": "astrobotic",
+    "name": "Astrobotic Technology",
+    "headquarters": "Pittsburgh, Pennsylvania",
+    "foundedYear": 2007,
+    "status": "awarded",
+    "statusLabel": "Active Contractor (Flight Heritage)",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Peregrine",
+        "payloadCapacityKg": 90,
+        "propulsionType": "Hypergolic Bi-propellant",
+        "heritage": "Flew TO2-AB (Peregrine 1)"
+      },
+      {
+        "name": "Griffin",
+        "payloadCapacityKg": 500,
+        "propulsionType": "High-thrust Bi-propellant",
+        "heritage": "Manifested on TO20A (Mons Mouton Flight Test)"
+      }
+    ],
+    "awardedTaskOrders": ["TO2-AB", "TO20A"],
+    "totalAwardValue": "$310M+",
+    "historicalAccomplishment": "First commercial company to launch a lunar lander under CLPS (Peregrine 1). Acquired Masten Space Systems assets in 2022.",
+    "websiteUrl": "https://www.astrobotic.com"
+  },
+  {
+    "id": "draper",
+    "name": "Team Draper",
+    "headquarters": "Cambridge, Massachusetts",
+    "foundedYear": 1932,
+    "status": "awarded",
+    "statusLabel": "Active Contractor (On Contract)",
+    "stockTicker": "Non-profit / Consortium",
+    "landers": [
+      {
+        "name": "ispace-U.S. APEX 1.0",
+        "payloadCapacityKg": 300,
+        "propulsionType": "Storable Bi-propellant",
+        "heritage": "Manifested on CP-12 (Schrödinger Basin)"
+      }
+    ],
+    "awardedTaskOrders": ["CP-12"],
+    "totalAwardValue": "$73M",
+    "historicalAccomplishment": "Prime contractor leading a commercial consortium (with ispace-U.S. and General Atomics) to deliver far-side seismology payloads to Schrödinger Basin.",
+    "websiteUrl": "https://www.draper.com"
+  },
+  {
+    "id": "blue-origin",
+    "name": "Blue Origin",
+    "headquarters": "Kent, Washington",
+    "foundedYear": 2000,
+    "status": "awarded",
+    "statusLabel": "Active Contractor (Heavy Cargo)",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Blue Moon Mark 1 (MK1)",
+        "payloadCapacityKg": 3000,
+        "propulsionType": "Cryogenic Liquid Hydrogen / Liquid Oxygen (Hydrolox BE-7)",
+        "heritage": "Manifested on CT-3 (South Pole)"
+      }
+    ],
+    "awardedTaskOrders": ["CT-3"],
+    "totalAwardValue": "Task order awarded under STMD",
+    "historicalAccomplishment": "Heavy-lift single-launch lander capable of delivering 3 metric tons to the lunar surface. Also prime contractor for Artemis HLS Blue Moon MK2.",
+    "websiteUrl": "https://www.blueorigin.com"
+  },
+  {
+    "id": "spacex",
+    "name": "SpaceX",
+    "headquarters": "Hawthorne, California",
+    "foundedYear": 2002,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Starship Human Landing System / Cargo",
+        "payloadCapacityKg": 100000,
+        "propulsionType": "Cryogenic Methalox (Raptor)",
+        "heritage": "Prime contractor for Artemis III & IV HLS"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "Eligible for CLPS 2.0 heavy logistics task orders",
+    "historicalAccomplishment": "Primary launch provider for multiple CLPS landers (Falcon 9 / Falcon Heavy).",
+    "websiteUrl": "https://www.spacex.com"
+  },
+  {
+    "id": "lockheed-martin",
+    "name": "Lockheed Martin Space",
+    "headquarters": "Littleton, Colorado",
+    "foundedYear": 1995,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "NYSE: LMT",
+    "landers": [
+      {
+        "name": "McCandless Lunar Lander Concept",
+        "payloadCapacityKg": 500,
+        "propulsionType": "Hypergolic Bi-propellant",
+        "heritage": "Deep space planetary heritage (OSIRIS-REx, InSight, Phoenix)"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Selected in original Nov 2018 vendor catalog.",
+    "websiteUrl": "https://www.lockheedmartin.com"
+  },
+  {
+    "id": "sierra-space",
+    "name": "Sierra Space",
+    "headquarters": "Louisville, Colorado",
+    "foundedYear": 2021,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Autonomous Logistics Lander Concept",
+        "payloadCapacityKg": 300,
+        "propulsionType": "Storable propellant",
+        "heritage": "Dream Chaser spaceplane heritage"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Added in Nov 2019 pool expansion.",
+    "websiteUrl": "https://www.sierraspace.com"
+  },
+  {
+    "id": "ceres-robotics",
+    "name": "Ceres Robotics",
+    "headquarters": "Silicon Valley, California",
+    "foundedYear": 2017,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "Modular Surface Lander Concept",
+        "payloadCapacityKg": 200,
+        "propulsionType": "Hypergolic",
+        "heritage": "Autonomous surface mobility focus"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Selected in Nov 2019 pool expansion.",
+    "websiteUrl": "https://www.ceresrobotics.com"
+  },
+  {
+    "id": "deep-space-systems",
+    "name": "Deep Space Systems",
+    "headquarters": "Littleton, Colorado",
+    "foundedYear": 2001,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Subsidiary of Redwire Space",
+    "landers": [
+      {
+        "name": "Robotic Scout & Systems Engineering",
+        "payloadCapacityKg": 100,
+        "propulsionType": "Commercial integration",
+        "heritage": "Cameras and avionics on Orion"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Selected in original Nov 2018 catalog.",
+    "websiteUrl": "https://redwirespace.com"
+  },
+  {
+    "id": "moon-express",
+    "name": "Moon Express",
+    "headquarters": "Cape Canaveral, Florida",
+    "foundedYear": 2010,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Private",
+    "landers": [
+      {
+        "name": "MX-1 Scout Concept",
+        "payloadCapacityKg": 50,
+        "propulsionType": "High-test peroxide / kerosene",
+        "heritage": "Google Lunar XPRIZE competitor"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Selected in original Nov 2018 catalog.",
+    "websiteUrl": "https://www.moonexpress.com"
+  },
+  {
+    "id": "tyvak",
+    "name": "Tyvak Nano-Satellite Systems",
+    "headquarters": "Irvine, California",
+    "foundedYear": 2013,
+    "status": "eligible_pool",
+    "statusLabel": "Eligible Contractor Pool",
+    "stockTicker": "Subsidiary of Terran Orbital",
+    "landers": [
+      {
+        "name": "Cislunar SmallSat / Surface Bus",
+        "payloadCapacityKg": 40,
+        "propulsionType": "Electric / cold gas propulsion",
+        "heritage": "CAPSTONE lunar navigation cubesat"
+      }
+    ],
+    "awardedTaskOrders": [],
+    "totalAwardValue": "N/A",
+    "historicalAccomplishment": "Selected in Nov 2019 pool expansion.",
+    "websiteUrl": "https://www.terranorbital.com"
+  },
+  {
+    "id": "masten",
+    "name": "Masten Space Systems",
+    "headquarters": "Mojave, California",
+    "foundedYear": 2004,
+    "status": "acquired_defunct",
+    "statusLabel": "Defunct (Assets Acquired by Astrobotic)",
+    "stockTicker": "Bankrupt (July 2022)",
+    "landers": [
+      {
+        "name": "XL-1",
+        "payloadCapacityKg": 100,
+        "propulsionType": "Rocket-grade kerosene / LOX (MXP-351)",
+        "heritage": "Awarded 19C/20B; canceled following Chapter 11 bankruptcy"
+      }
+    ],
+    "awardedTaskOrders": ["19C (Terminated)"],
+    "totalAwardValue": "$75.9M (Original award)",
+    "historicalAccomplishment": "Rocket landing pioneer. Filed for bankruptcy in 2022 due to cost overruns; assets acquired by Astrobotic.",
+    "websiteUrl": "https://www.astrobotic.com"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "malapert-a",
+    "name": "Malapert A",
+    "hemisphere": "South Polar Highlands",
+    "coordinates": {
+      "latitude": -80.1221,
+      "longitude": 1.4395,
+      "elevationMeters": -3607
+    },
+    "missions": ["to2-im"],
+    "geologicalDescription": "Satellite crater adjacent to Mons Malapert, 300 km from lunar South Pole. Ancient anorthositic highlands with long duration solar visibility on high ridges.",
+    "scientificSignificance": "Proving ground for South Pole precision landing, plume-surface interaction, and local navigation beacons.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Lunar Reconnaissance Orbiter Camera (LROC) Image M1463385732R"
+  },
+  {
+    "id": "sinus-viscositatis",
+    "name": "Sinus Viscositatis",
+    "hemisphere": "Nearside (Oceanus Procellarum)",
+    "coordinates": {
+      "latitude": 35.3,
+      "longitude": -40.9,
+      "elevationMeters": -2100
+    },
+    "missions": ["to2-ab"],
+    "geologicalDescription": "Basaltic mare plain bordering the Gruithuisen Domes silicic volcanic province in northern Oceanus Procellarum.",
+    "scientificSignificance": "Investigation of mare volcanism and proximity to high-silica volcanic mounds.",
+    "confirmedByOrbiter": false,
+    "orbiterVerificationSource": null
+  },
+  {
+    "id": "mare-crisium",
+    "name": "Mare Crisium",
+    "hemisphere": "Nearside (Eastern Limb)",
+    "coordinates": {
+      "latitude": 18.5,
+      "longitude": 61.8,
+      "elevationMeters": -3500
+    },
+    "missions": ["to19d"],
+    "geologicalDescription": "Distinct circular basaltic mare basin created by a major pre-Nectarian impact, filled with flood basalts.",
+    "scientificSignificance": "Clean baseline for mantle heat flow probing, Earth magnetosphere X-ray imaging, and regolith adherence testing.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Science TO19D Manifest"
+  },
+  {
+    "id": "mons-mouton",
+    "name": "Mons Mouton",
+    "hemisphere": "South Polar Highlands",
+    "coordinates": {
+      "latitude": -84.9,
+      "longitude": 31.7,
+      "elevationMeters": 6000
+    },
+    "missions": ["to20a", "cp-22"],
+    "geologicalDescription": "Vast, flat-topped lunar mountain plateau rising high above surrounding craters near Nobile crater. Named after NASA mathematician Melba Roy Mouton.",
+    "scientificSignificance": "Abundant cold traps hosting potential subsurface ice with extended sunlight windows across the plateau.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA LRO LOLA Topographic Model"
+  },
+  {
+    "id": "shackleton-ridge",
+    "name": "Shackleton Connecting Ridge",
+    "hemisphere": "Extreme South Pole",
+    "coordinates": {
+      "latitude": -89.9,
+      "longitude": 0.0,
+      "elevationMeters": -100
+    },
+    "missions": ["prime-1"],
+    "geologicalDescription": "Narrow high-elevation ridge connecting Shackleton Crater to de Gerlache Crater, experiencing near-permanent sunlight on its crest while dropping into permanent shadow.",
+    "scientificSignificance": "Site of the first direct 1-meter subsurface ice drilling and mass spectrometry volatile analysis.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Science PRIME-1 Profile"
+  },
+  {
+    "id": "reiner-gamma",
+    "name": "Reiner Gamma",
+    "hemisphere": "Nearside (Oceanus Procellarum)",
+    "coordinates": {
+      "latitude": 7.5,
+      "longitude": -59.0,
+      "elevationMeters": -2500
+    },
+    "missions": ["cp-11"],
+    "geologicalDescription": "The solar system's most prominent lunar swirl—a high-albedo sinuous marking with zero topography, correlating with a strong localized magnetic field anomaly.",
+    "scientificSignificance": "In-situ testing of magnetic solar wind deflection hypothesis and multi-agent swarm robotics deployment.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Science CP-11 Profile"
+  },
+  {
+    "id": "schrodinger-basin",
+    "name": "Schrödinger Basin",
+    "hemisphere": "Far Side (South Pole-Aitken)",
+    "coordinates": {
+      "latitude": -75.0,
+      "longitude": 132.5,
+      "elevationMeters": -4500
+    },
+    "missions": ["cp-12"],
+    "geologicalDescription": "Enormous 312-km multi-ring impact basin within the South Pole-Aitken Basin featuring an inner peak ring and volcanic vent.",
+    "scientificSignificance": "First far-side seismic observatory, probing deep moonquakes and core-mantle boundary thickness.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Science CP-12 Profile"
+  },
+  {
+    "id": "gruithuisen-domes",
+    "name": "Gruithuisen Domes",
+    "hemisphere": "Nearside (Oceanus Procellarum)",
+    "coordinates": {
+      "latitude": 36.0,
+      "longitude": -40.0,
+      "elevationMeters": 1200
+    },
+    "missions": ["cp-21"],
+    "geologicalDescription": "Steep-sided, silica-rich volcanic mounds (Mons Gruithuisen Gamma and Delta) rising over 1,000 meters above the western basaltic mare.",
+    "scientificSignificance": "Investigating how waterless, non-plate-tectonic planetary bodies can produce differentiated silicic/granitic magma.",
+    "confirmedByOrbiter": true,
+    "orbiterVerificationSource": "NASA Science CP-21 Profile"
+  }
+]
