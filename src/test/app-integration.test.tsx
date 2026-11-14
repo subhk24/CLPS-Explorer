@@ -10,7 +10,7 @@ describe('App Redesign Full Integration Test Suite', () => {
     const video = document.querySelector('video');
     expect(video).toBeInTheDocument();
     const source = video?.querySelector('source');
-    expect(source).toHaveAttribute('src', '/videos/nasa-hero.mp4');
+    expect(source).toHaveAttribute('src', `${import.meta.env.BASE_URL}videos/nasa-hero.mp4`);
 
     // 2. Mute button removed; Play/pause remains
     expect(screen.queryByRole('button', { name: /unmute|mute/i })).not.toBeInTheDocument();

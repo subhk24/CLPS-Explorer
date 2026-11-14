@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MissionExplorer } from '../components/missions/MissionExplorer';
 import { PayloadsExplorer } from '../components/payloads/PayloadsExplorer';
@@ -221,6 +221,8 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
   });
 
   describe('SourcesExplorer Component', () => {
+    afterEach(() => vi.restoreAllMocks());
+
     it('renders data verification standards, bibliography, and lunar video stream', () => {
       render(<SourcesExplorer />);
       expect(screen.getByRole('heading', { name: /how clps explorer verifies data/i })).toBeInTheDocument();
@@ -232,6 +234,46 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
       const video = document.querySelector('video');
       expect(video).toBeInTheDocument();
       expect(video).not.toHaveAttribute('poster');
+      expect(video?.querySelectorAll('source')).toHaveLength(2);
+      expect(video?.querySelector('source')?.getAttribute('src')).toBe(
+        `${import.meta.env.BASE_URL}videos/nasa-hero.mp4`
+      );
+      expect(video?.querySelectorAll('source')[1]?.getAttribute('src')).toBe(
+        `${import.meta.env.BASE_URL}videos/lunar-tour.mp4`
+      );
+    });
+
+    it('tracks playback, pause, seeking, and shows a retry state after a media error', () => {
+      const play = vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue();
+      const pause = vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
+      const load = vi.spyOn(HTMLMediaElement.prototype, 'load').mockImplementation(() => {});
+      render(<SourcesExplorer />);
+
+      const video = document.querySelector('video') as HTMLVideoElement;
+      fireEvent.canPlay(video);
+      expect(screen.queryByRole('status')).not.toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole('button', { name: /play lunar tour/i }));
+      expect(play).toHaveBeenCalled();
+      fireEvent.playing(video);
+      expect(screen.getByRole('button', { name: /pause lunar tour/i })).toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole('button', { name: /pause lunar tour/i }));
+      expect(pause).toHaveBeenCalled();
+      fireEvent.pause(video);
+      expect(screen.getByRole('button', { name: /play lunar tour/i })).toBeInTheDocument();
+
+      Object.defineProperty(video, 'duration', { configurable: true, value: 12 });
+      fireEvent.loadedMetadata(video);
+      const scrubber = screen.getByRole('slider', { name: /video scrubber/i });
+      fireEvent.change(scrubber, { target: { value: '4.5' } });
+      expect(video.currentTime).toBe(4.5);
+
+      fireEvent.error(video);
+      expect(screen.getByRole('alert')).toHaveTextContent(/could not be loaded/i);
+      fireEvent.click(screen.getByRole('button', { name: /retry video/i }));
+      expect(load).toHaveBeenCalled();
+      expect(play).toHaveBeenCalledTimes(3); // autoplay, user play, retry
     });
   });
 

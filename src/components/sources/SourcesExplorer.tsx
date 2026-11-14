@@ -19,8 +19,10 @@ import { NasaRedArrow } from '../common/NasaRedArrow';
 
 export const SourcesExplorer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasPlaybackError, setHasPlaybackError] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
 
@@ -30,23 +32,14 @@ export const SourcesExplorer: React.FC = () => {
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    setIsLoading(true);
 
     try {
       const playPromise = video.play?.();
-      if (playPromise !== undefined && typeof playPromise?.then === 'function') {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            setIsPlaying(false);
-          });
-      } else {
-        setIsPlaying(true);
-      }
-    } catch {
-      setIsPlaying(false);
-    }
+      // Media events below are the source of truth. Autoplay is best-effort;
+      // browsers may reject it until the user presses Play.
+      playPromise?.catch(() => setIsPlaying(false));
+    } catch { /* Playback can be started with the visible control. */ }
 
     const updateTime = () => {
       setCurrentTime(video.currentTime);
@@ -59,29 +52,37 @@ export const SourcesExplorer: React.FC = () => {
     };
   }, []);
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause?.();
-      setIsPlaying(false);
-    } else {
-      try {
-        const playPromise = videoRef.current.play?.();
-        if (playPromise !== undefined && typeof playPromise?.then === 'function') {
-          playPromise
-            .then(() => {
-              setIsPlaying(true);
-            })
-            .catch(() => {
-              setIsPlaying(false);
-            });
-        } else {
-          setIsPlaying(true);
-        }
-      } catch {
+  const playVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    setHasPlaybackError(false);
+    setIsLoading(true);
+    try {
+      const playPromise = video.play();
+      playPromise?.catch(() => {
+        setIsLoading(false);
         setIsPlaying(false);
-      }
+      });
+    } catch {
+      setIsLoading(false);
+      setIsPlaying(false);
     }
+  };
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isPlaying) video.pause();
+    else playVideo();
+  };
+
+  const retryVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    setHasPlaybackError(false);
+    setIsLoading(true);
+    video.load();
+    playVideo();
   };
 
   const toggleMute = () => {
@@ -102,8 +103,16 @@ export const SourcesExplorer: React.FC = () => {
   const toggleFullscreen = () => {
     if (!videoRef.current) return;
     if (videoRef.current.requestFullscreen) {
-      videoRef.current.requestFullscreen();
+      void videoRef.current.requestFullscreen().catch(() => undefined);
+    } else if ('webkitEnterFullscreen' in videoRef.current) {
+      (videoRef.current as HTMLVideoElement & { webkitEnterFullscreen: () => void }).webkitEnterFullscreen();
     }
+  };
+
+  const handleVideoError = () => {
+    setIsLoading(false);
+    setIsPlaying(false);
+    setHasPlaybackError(true);
   };
 
   const formatTime = (seconds: number) => {
@@ -274,10 +283,48 @@ export const SourcesExplorer: React.FC = () => {
                   preload="auto"
                   className="w-full h-full object-cover"
                   aria-label="Lunar surface flyover visualization by NASA LROC"
+                  onLoadStart={() => {
+                    setIsLoading(true);
+                    setHasPlaybackError(false);
+                  }}
+                  onLoadedMetadata={(event) => {
+                    const video = event.currentTarget;
+                    setDuration(Number.isFinite(video.duration) ? video.duration : 0);
+                    setCurrentTime(video.currentTime || 0);
+                    setIsLoading(false);
+                  }}
+                  onCanPlay={() => setIsLoading(false)}
+                  onPlaying={() => {
+                    setIsLoading(false);
+                    setHasPlaybackError(false);
+                    setIsPlaying(true);
+                  }}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  onWaiting={() => setIsLoading(true)}
+                  onError={handleVideoError}
                 >
                   <source src={publicAssetUrl('/videos/nasa-hero.mp4')} type="video/mp4" />
                   <source src={publicAssetUrl('/videos/lunar-tour.mp4')} type="video/mp4" />
                 </video>
+
+                {isLoading && !hasPlaybackError && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/55 text-xs font-mono text-zinc-300 pointer-events-none" role="status" aria-live="polite">
+                    Loading NASA lunar video…
+                  </div>
+                )}
+                {hasPlaybackError && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/85 px-5 text-center" role="alert">
+                    <p className="text-xs font-mono text-zinc-200">The video could not be loaded. Check your connection and try again.</p>
+                    <button
+                      type="button"
+                      onClick={retryVideo}
+                      className="rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-mono text-white hover:bg-white/20 transition-colors"
+                    >
+                      Retry video
+                    </button>
+                  </div>
+                )}
 
                 {/* Subtle dark gradient overlay at bottom of video */}
                 <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
