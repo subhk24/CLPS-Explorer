@@ -59,16 +59,16 @@ The `validateDataIntegrity()` function checks the following relationships:
 | Mission → Provider | Every mission provider ID must exist in `providers.json`. |
 | Payload → Mission | Every payload mission ID must exist in `missions.json`. |
 | Landing site → Mission | Every mission ID referenced by a landing site must exist. |
-| Mission → Payload | Every payload ID listed by a mission must exist in `payloads.json`. |
+| Mission → Payload | Payload IDs listed by a mission are checked against `payloads.json`; missing detailed catalog entries are review warnings because a manifest ID may identify a composite package. |
 | Mission IDs | Duplicate mission IDs are reported. |
 | Payload IDs | Duplicate payload IDs are reported. |
 | Provider IDs | Duplicate provider IDs are reported. |
 | Landing site IDs | Duplicate landing site IDs are reported. |
 | Mission coordinates | Latitude and longitude must be finite and within valid bounds. |
 | Landing site coordinates | Latitude and longitude must be finite and within valid bounds. |
-| Manifest count | Declared mission payload count is compared with the number of payload IDs in its manifest. |
+| Manifest count | Declared mission payload count is compared with the number of payload IDs in its manifest; differences are review warnings. |
 
-The report returns individual error arrays so that data issues can be investigated rather than hidden behind a single pass/fail result.
+The report returns individual issue arrays so that data issues can be investigated rather than hidden behind a single pass/fail result. Missing detailed payload catalog entries and manifest count differences are non-blocking review warnings; unresolved mission/provider/site references, duplicate IDs, and invalid coordinates block the integrity check.
 
 ## 4. Payload Count Interpretation
 

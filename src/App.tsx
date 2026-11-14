@@ -25,6 +25,7 @@ import {
   getLandingSiteById,
   getProviderById,
   validateDataIntegrity,
+  formatDataIntegrityAlert,
 } from './data';
 import type { Mission, Payload, LandingSite, Provider, ScienceDomain } from './types';
 
@@ -288,7 +289,7 @@ export const App: React.FC = () => {
           <Container size="xl" className="mt-4">
             <ErrorState
               title="Data Integrity Validation Alert"
-              message={`Unresolved foreign references detected: ${integrityReport.unresolvedProviders.join(', ')}`}
+              message={formatDataIntegrityAlert(integrityReport)}
             />
           </Container>
         )}

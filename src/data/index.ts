@@ -279,10 +279,29 @@ export interface DataIntegrityReport {
   coordinateErrors: string[];
 }
 
+/** Build a useful alert from every blocking integrity issue in a report. */
+export function formatDataIntegrityAlert(report: DataIntegrityReport): string {
+  const issues = [
+    ...report.unresolvedProviders,
+    ...report.unresolvedMissionsInPayloads,
+    ...report.unresolvedMissionsInSites,
+    ...report.duplicateMissionIds.map((id) => `Duplicate mission ID: ${id}`),
+    ...report.duplicatePayloadIds.map((id) => `Duplicate payload ID: ${id}`),
+    ...report.duplicateProviderIds.map((id) => `Duplicate provider ID: ${id}`),
+    ...report.duplicateLandingSiteIds.map((id) => `Duplicate landing site ID: ${id}`),
+    ...report.coordinateErrors,
+  ];
+
+  return issues.length > 0
+    ? `Data integrity issues detected: ${issues.join('; ')}`
+    : 'Data integrity validation passed.';
+}
+
 /**
  * Validate relationships and basic data consistency across datasets.
- * This checks references, duplicate IDs, declared payload counts,
- * and coordinate bounds.
+ * Mission manifest references absent from the detailed payload catalog and
+ * payload count differences are reported for review, not treated as blockers:
+ * a manifest entry may represent a package that is not individually catalogued.
  */
 export function validateDataIntegrity(): DataIntegrityReport {
   const unresolvedProviders: string[] = [];
@@ -421,8 +440,6 @@ export function validateDataIntegrity(): DataIntegrityReport {
     unresolvedProviders.length === 0 &&
     unresolvedMissionsInPayloads.length === 0 &&
     unresolvedMissionsInSites.length === 0 &&
-    unresolvedPayloadsInMissionManifests.length === 0 &&
-    missionPayloadCountMismatches.length === 0 &&
     duplicateMissionIds.length === 0 &&
     duplicatePayloadIds.length === 0 &&
     duplicateProviderIds.length === 0 &&

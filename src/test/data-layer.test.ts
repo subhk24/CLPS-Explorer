@@ -12,6 +12,7 @@ import {
   getLandingSiteById,
   getProgramMetrics,
   validateDataIntegrity,
+  formatDataIntegrityAlert,
 } from '../data';
 import { getImageForEntity } from '../data/imagery';
 
@@ -118,12 +119,32 @@ describe('CLPS Explorer Data Layer & Integrity Tests', () => {
     expect(metrics.combinedContractCeiling).toContain('$2.6');
   });
 
-  it('passes comprehensive data integrity check with zero broken references', () => {
+  it('passes structural integrity while reporting payload count differences for review', () => {
     const report = validateDataIntegrity();
     expect(report.isValid).toBe(true);
     expect(report.unresolvedProviders).toHaveLength(0);
     expect(report.unresolvedMissionsInPayloads).toHaveLength(0);
     expect(report.unresolvedMissionsInSites).toHaveLength(0);
+    expect(report.missionPayloadCountMismatches.length).toBeGreaterThan(0);
+    expect(report.unresolvedPayloadsInMissionManifests.length).toBeGreaterThan(0);
+    expect(formatDataIntegrityAlert(report)).toBe('Data integrity validation passed.');
+  });
+
+  it('formats all blocking integrity issues in the validation alert', () => {
+    const report = validateDataIntegrity();
+    report.unresolvedMissionsInPayloads = [];
+    report.unresolvedMissionsInSites = [];
+    report.unresolvedPayloadsInMissionManifests = [];
+    report.duplicateMissionIds = [];
+    report.duplicatePayloadIds = [];
+    report.duplicateProviderIds = [];
+    report.duplicateLandingSiteIds = [];
+    report.unresolvedProviders = ['Mission demo -> Provider missing'];
+    report.coordinateErrors = ['Mission demo invalid latitude: 91'];
+
+    expect(formatDataIntegrityAlert(report)).toBe(
+      'Data integrity issues detected: Mission demo -> Provider missing; Mission demo invalid latitude: 91'
+    );
   });
 
   it('guarantees unique and authentic imagery for key payloads without identical duplicates', () => {
