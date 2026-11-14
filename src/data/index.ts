@@ -14,7 +14,6 @@ import type {
   DataProvenance,
 } from '../types';
 
-// Valid status types for runtime guard
 const VALID_MISSION_STATUSES: Set<MissionStatus> = new Set([
   'landed_nominal',
   'landed_anomaly',
@@ -35,36 +34,15 @@ const VALID_SCIENCE_DOMAINS: Set<ScienceDomain> = new Set([
   'TECH',
 ]);
 
-/**
- * Assign verified factual provenance to mission records.
- */
-function assignMissionProvenance(id: string, status: MissionStatus, sourceUrl: string): DataProvenance {
-  if (status === 'landed_anomaly' || status === 'landed_nominal' || status === 'transit_loss' || status === 'delivered') {
-    return {
-      verifiedDate: '2025-02-15',
-      sourceAgency: 'NASA Science Mission Directorate / Planetary Science Division',
-      primaryCitation: id === 'to2-im'
-        ? 'NASA Lunar Reconnaissance Orbiter Camera (LROC) Odysseus Landing Site Report'
-        : id === 'to19d'
-        ? 'NASA SMD TO19D Surface Telemetry & Delivery Confirmation Bulletin'
-        : 'NASA Peregrine Mission 1 Astrobotic Post-Flight Telemetry Review',
-      outcomeConfidence: 'confirmed_historical',
-    };
-  }
-
-  if (id === 'to20a' || id === 'prime-1' || id === 'cp-11' || id === 'cp-12' || id === 'cs-3') {
-    return {
-      verifiedDate: '2026-07-01',
-      sourceAgency: 'NASA CLPS Program Office (JSC / HQ)',
-      primaryCitation: `NASA CLPS Task Order Manifest (${sourceUrl})`,
-      outcomeConfidence: 'scheduled_target_window',
-    };
-  }
-
+function assignMissionProvenance(
+  _id: string,
+  _status: MissionStatus,
+  sourceUrl: string
+): DataProvenance {
   return {
-    verifiedDate: '2026-07-01',
-    sourceAgency: 'NASA Exploration Science Strategy and Integration Office (ESSIO)',
-    primaryCitation: `NASA IDIQ Contract Award Notice & Task Order Delivery Spec (${sourceUrl})`,
+    verifiedDate: '2026-11-14',
+    sourceAgency: 'NASA / CLPS mission documentation',
+    primaryCitation: sourceUrl,
     outcomeConfidence: 'development_target',
   };
 }
@@ -255,27 +233,39 @@ export function getLandingSiteById(id: string): LandingSite | undefined {
   return landingSitesById.get(id);
 }
 
-/**
- * Calculate verified program metrics strictly from data.
- */
 export function getProgramMetrics(): ProgramMetrics {
-  const awardedVendors = providers.filter((p) => p.status === 'awarded');
-  const eligibleVendors = providers.filter((p) => p.status === 'eligible_pool' || p.status === 'awarded');
+  const awardedVendors = providers.filter(
+    (p) => p.status === 'awarded'
+  );
+
+  const eligibleVendors = providers.filter(
+    (p) =>
+      p.status === 'eligible_pool' ||
+      p.status === 'awarded'
+  );
+
+  const cataloguedPayloadCount = missions.reduce(
+    (total, mission) => total + mission.nasaPayloadCount,
+    0
+  );
 
   return {
-    totalDeliveriesAwarded: 17, // Official NASA awarded count across active and future FFP orders
-    awardedVendorsCount: awardedVendors.length, // Exactly 5 (Intuitive Machines, Firefly, Astrobotic, Draper, Blue Origin)
-    eligiblePoolCount: eligibleVendors.length,  // Exactly 12 active (plus Masten acquired)
-    totalNasaPayloadsAwarded: 60, // Official minimum baseline NASA payloads across 17 orders
-    combinedContractCeiling: '$2.6 Billion',
-    contractCeilingThruDate: 'November 2028',
+    totalDeliveriesAwarded: missions.length,
+    awardedVendorsCount: awardedVendors.length,
+    eligiblePoolCount: eligibleVendors.length,
+    totalNasaPayloadsAwarded: cataloguedPayloadCount,
+    combinedContractCeiling:
+      '$4.2B (CLPS 1.0); up to $10B (CLPS 2.0 framework)',
+
+    contractCeilingThruDate:
+      'CLPS 1.0 ordering period through November 2028',
   };
 }
-
-/**
- * Validate data integrity across datasets (detect orphan references and broken links).
- */
 export interface DataIntegrityReport {
+  unresolvedPayloadsInMissionManifests: string[];
+  missionPayloadCountMismatches: string[];
+  duplicateProviderIds: string[];
+  duplicateLandingSiteIds: string[];
   isValid: boolean;
   missionsCount: number;
   payloadsCount: number;
@@ -289,53 +279,141 @@ export interface DataIntegrityReport {
   coordinateErrors: string[];
 }
 
+/**
+ * Validate relationships and basic data consistency across datasets.
+ * This checks references, duplicate IDs, declared payload counts,
+ * and coordinate bounds.
+ */
 export function validateDataIntegrity(): DataIntegrityReport {
   const unresolvedProviders: string[] = [];
   const unresolvedMissionsInPayloads: string[] = [];
   const unresolvedMissionsInSites: string[] = [];
+  const unresolvedPayloadsInMissionManifests: string[] = [];
+  const missionPayloadCountMismatches: string[] = [];
+
   const duplicateMissionIds: string[] = [];
   const duplicatePayloadIds: string[] = [];
+  const duplicateProviderIds: string[] = [];
+  const duplicateLandingSiteIds: string[] = [];
+
   const coordinateErrors: string[] = [];
 
-  // Check unique mission IDs
+  // Check duplicate mission IDs and mission references.
   const seenMissionIds = new Set<string>();
-  for (const m of missions) {
-    if (seenMissionIds.has(m.id)) {
-      duplicateMissionIds.push(m.id);
-    }
-    seenMissionIds.add(m.id);
 
-    if (!providersById.has(m.providerId)) {
-      unresolvedProviders.push(`Mission ${m.id} -> Provider ${m.providerId}`);
+  for (const mission of missions) {
+    if (seenMissionIds.has(mission.id)) {
+      duplicateMissionIds.push(mission.id);
+    }
+    seenMissionIds.add(mission.id);
+
+    if (!providersById.has(mission.providerId)) {
+      unresolvedProviders.push(
+        `Mission ${mission.id} -> Provider ${mission.providerId}`
+      );
     }
 
-    if (m.coordinates.latitude < -90 || m.coordinates.latitude > 90) {
-      coordinateErrors.push(`Mission ${m.id} invalid latitude: ${m.coordinates.latitude}`);
-    }
-    if (m.coordinates.longitude < -180 || m.coordinates.longitude > 180) {
-      coordinateErrors.push(`Mission ${m.id} invalid longitude: ${m.coordinates.longitude}`);
-    }
-  }
+    const { latitude, longitude } = mission.coordinates;
 
-  // Check unique payload IDs
-  const seenPayloadIds = new Set<string>();
-  for (const p of payloads) {
-    if (seenPayloadIds.has(p.id)) {
-      duplicatePayloadIds.push(p.id);
+    if (
+      !Number.isFinite(latitude) ||
+      latitude < -90 ||
+      latitude > 90
+    ) {
+      coordinateErrors.push(
+        `Mission ${mission.id} invalid latitude: ${latitude}`
+      );
     }
-    seenPayloadIds.add(p.id);
 
-    if (!missionsById.has(p.missionId)) {
-      unresolvedMissionsInPayloads.push(`Payload ${p.id} -> Mission ${p.missionId}`);
+    if (
+      !Number.isFinite(longitude) ||
+      longitude < -180 ||
+      longitude > 180
+    ) {
+      coordinateErrors.push(
+        `Mission ${mission.id} invalid longitude: ${longitude}`
+      );
     }
-  }
 
-  // Check site mission references
-  for (const s of landingSites) {
-    for (const mId of s.missions) {
-      if (!missionsById.has(mId)) {
-        unresolvedMissionsInSites.push(`Site ${s.id} -> Mission ${mId}`);
+    // Check every payload ID declared by the mission.
+    for (const payloadId of mission.payloadIds) {
+      if (!payloadsById.has(payloadId)) {
+        unresolvedPayloadsInMissionManifests.push(
+          `Mission ${mission.id} -> Payload ${payloadId}`
+        );
       }
+    }
+
+    // Compare declared count with the number of IDs in the manifest.
+    if (mission.nasaPayloadCount !== mission.payloadIds.length) {
+      missionPayloadCountMismatches.push(
+        `Mission ${mission.id}: declared ${mission.nasaPayloadCount}, ` +
+        `manifest contains ${mission.payloadIds.length}`
+      );
+    }
+  }
+
+  // Check duplicate payload IDs and payload -> mission references.
+  const seenPayloadIds = new Set<string>();
+
+  for (const payload of payloads) {
+    if (seenPayloadIds.has(payload.id)) {
+      duplicatePayloadIds.push(payload.id);
+    }
+    seenPayloadIds.add(payload.id);
+
+    if (!missionsById.has(payload.missionId)) {
+      unresolvedMissionsInPayloads.push(
+        `Payload ${payload.id} -> Mission ${payload.missionId}`
+      );
+    }
+  }
+  const seenProviderIds = new Set<string>();
+
+  for (const provider of providers) {
+    if (seenProviderIds.has(provider.id)) {
+      duplicateProviderIds.push(provider.id);
+    }
+    seenProviderIds.add(provider.id);
+  }
+
+  // Check duplicate landing site IDs and site -> mission references.
+  const seenLandingSiteIds = new Set<string>();
+
+  for (const site of landingSites) {
+    if (seenLandingSiteIds.has(site.id)) {
+      duplicateLandingSiteIds.push(site.id);
+    }
+    seenLandingSiteIds.add(site.id);
+
+    for (const missionId of site.missions) {
+      if (!missionsById.has(missionId)) {
+        unresolvedMissionsInSites.push(
+          `Site ${site.id} -> Mission ${missionId}`
+        );
+      }
+    }
+
+    const { latitude, longitude } = site.coordinates;
+
+    if (
+      !Number.isFinite(latitude) ||
+      latitude < -90 ||
+      latitude > 90
+    ) {
+      coordinateErrors.push(
+        `Landing site ${site.id} invalid latitude: ${latitude}`
+      );
+    }
+
+    if (
+      !Number.isFinite(longitude) ||
+      longitude < -180 ||
+      longitude > 180
+    ) {
+      coordinateErrors.push(
+        `Landing site ${site.id} invalid longitude: ${longitude}`
+      );
     }
   }
 
@@ -343,8 +421,12 @@ export function validateDataIntegrity(): DataIntegrityReport {
     unresolvedProviders.length === 0 &&
     unresolvedMissionsInPayloads.length === 0 &&
     unresolvedMissionsInSites.length === 0 &&
+    unresolvedPayloadsInMissionManifests.length === 0 &&
+    missionPayloadCountMismatches.length === 0 &&
     duplicateMissionIds.length === 0 &&
     duplicatePayloadIds.length === 0 &&
+    duplicateProviderIds.length === 0 &&
+    duplicateLandingSiteIds.length === 0 &&
     coordinateErrors.length === 0;
 
   return {
@@ -353,11 +435,18 @@ export function validateDataIntegrity(): DataIntegrityReport {
     payloadsCount: payloads.length,
     providersCount: providers.length,
     landingSitesCount: landingSites.length,
+
     unresolvedProviders,
     unresolvedMissionsInPayloads,
     unresolvedMissionsInSites,
+    unresolvedPayloadsInMissionManifests,
+    missionPayloadCountMismatches,
+
     duplicateMissionIds,
     duplicatePayloadIds,
+    duplicateProviderIds,
+    duplicateLandingSiteIds,
+
     coordinateErrors,
   };
 }

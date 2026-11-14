@@ -46,97 +46,119 @@
     "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/"
   },
   {
-    "id": "to19d",
-    "name": "Blue Ghost Mission 1",
-    "taskOrder": "TO19D",
-    "providerId": "firefly",
-    "landerModel": "Blue Ghost 1",
-    "targetRegion": "Mare Crisium",
-    "coordinates": {
-      "latitude": 18.5,
-      "longitude": 61.8,
-      "targetDescription": "Basaltic mare plain on eastern nearside"
-    },
-    "launchDate": "2025-01-15",
-    "launchVehicle": "SpaceX Falcon 9",
-    "landingDate": "2025-01-28",
-    "status": "delivered",
-    "statusLabel": "Delivered / Surface Active",
-    "nasaPayloadCount": 10,
-    "payloadIds": ["nglr", "radpc", "rac", "lms", "lexi", "lpv", "lister", "scalpss-11", "eds", "lugre"],
-    "summary": "Carried the largest single scientific payload suite in CLPS history (10 instruments). Conducted comprehensive studies of lunar regolith, mantle heat flow, Earth magnetosphere soft X-ray imaging, and dust mitigation.",
-    "scientificObjectives": "Probe interior heat flow, regolith adherence, global GNSS navigation, and space weather interactions.",
-    "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/"
+  "id": "to19d",
+  "name": "Blue Ghost Mission 1",
+  "taskOrder": "TO19D",
+  "providerId": "firefly",
+  "landerModel": "Blue Ghost 1",
+  "targetRegion": "Mare Crisium",
+  "coordinates": {
+    "latitude": 18.5,
+    "longitude": 61.8,
+    "targetDescription": "Basaltic mare plain on eastern nearside"
   },
-  {
-    "id": "to20a",
-    "name": "Griffin Mission 1",
-    "taskOrder": "TO20A",
-    "providerId": "astrobotic",
-    "landerModel": "Griffin Class 2",
-    "targetRegion": "Mons Mouton (Lunar South Pole)",
-    "coordinates": {
-      "latitude": -84.9,
-      "longitude": 31.7,
-      "targetDescription": "Flat-topped mountain plateau near Nobile Crater"
-    },
-    "launchDate": "2025-11-01",
-    "launchVehicle": "SpaceX Falcon Heavy",
-    "landingDate": null,
-    "status": "testing",
-    "statusLabel": "Flight Test Demonstration",
-    "nasaPayloadCount": 1,
-    "payloadIds": ["griffin-test-suite"],
-    "summary": "Originally manifested for NASA's VIPER rover. Following VIPER cancellation in July 2024 to protect program budget, NASA maintained the contract as a Griffin lander flight qualification test carrying a rover mass simulator and flight instrument package.",
-    "scientificObjectives": "Heavy-class commercial lander descent demonstration and polar terrain touchdown characterization.",
-    "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/to20a-astrobotic/"
+  "launchDate": "2025-01-15",
+  "launchVehicle": "SpaceX Falcon 9",
+  "landingDate": "2025-03-02",
+  "status": "delivered",
+  "statusLabel": "Successfully Landed (Mission Complete)",
+  "nasaPayloadCount": 10,
+  "payloadIds": [
+    "nglr",
+    "radpc",
+    "rac",
+    "lms",
+    "lexi",
+    "lpv",
+    "lister",
+    "scalpss-11",
+    "eds",
+    "lugre"
+  ],
+  "summary": "Firefly's Blue Ghost Mission 1 successfully landed in Mare Crisium on March 2, 2025. The lander operated through the lunar day, delivering data from 10 NASA-supported science and technology payloads, including investigations of lunar regolith, heat flow, dust, and the lunar environment.",
+  "scientificObjectives": "Investigate lunar interior heat flow, regolith properties, dust mitigation, navigation technologies, and interactions between the lunar surface and space environment.",
+  "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/"
+},
+{
+  "id": "to20a",
+  "name": "Griffin Mission 1",
+  "taskOrder": "TO20A",
+  "providerId": "astrobotic",
+  "landerModel": "Griffin Class 2",
+  "targetRegion": "Mons Mouton (Lunar South Pole)",
+  "coordinates": {
+    "latitude": -84.9,
+    "longitude": 31.7,
+    "targetDescription": "Flat-topped mountain plateau near Nobile Crater"
   },
-  {
-    "id": "prime-1",
-    "name": "IM-2 (PRIME-1)",
-    "taskOrder": "PRIME-1",
-    "providerId": "intuitive-machines",
-    "landerModel": "Nova-C",
-    "targetRegion": "Shackleton Connecting Ridge (South Pole)",
-    "coordinates": {
-      "latitude": -89.9,
-      "longitude": 0.0,
-      "targetDescription": "Ultra-high latitude polar ridge bordering Shackleton Crater"
-    },
-    "launchDate": "2025-06-01",
-    "launchVehicle": "SpaceX Falcon 9",
-    "landingDate": null,
-    "status": "planned",
-    "statusLabel": "Planned (Target 2025)",
-    "nasaPayloadCount": 3,
-    "payloadIds": ["trident-drill", "msolo-prime1", "lra-prime1"],
-    "summary": "First direct in-situ subsurface volatile drilling mission on the Moon. TRIDENT will drill 1 meter deep in 10-cm increments, feeding cuttings to the MSolo mass spectrometer to detect water ice and volatile species before solar sublimation.",
-    "scientificObjectives": "Direct volatile prospecting, subsurface temperature profiling, and polar ice characterization.",
-    "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/prime-1-im/"
+  "launchDate": null,
+  "launchVehicle": "SpaceX Falcon Heavy",
+  "landingDate": null,
+  "status": "planned",
+  "statusLabel": "Planned (No Earlier Than January 2027)",
+  "nasaPayloadCount": 1,
+  "payloadIds": [
+    "griffin-test-suite"
+  ],
+  "summary": "Astrobotic's Griffin Mission 1 was originally intended to deliver NASA's VIPER rover. Following the rover mission's cancellation, Griffin was repurposed as a lander flight qualification mission carrying a mass simulator and technology demonstration payload. Its launch schedule has shifted, with the current planning window no earlier than January 2027.",
+  "scientificObjectives": "Demonstrate heavy-class commercial lunar landing capabilities and characterize lander performance in the lunar south polar environment.",
+  "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/to20a-astrobotic/"
+},
+{
+  "id": "prime-1",
+  "name": "IM-2 (Athena)",
+  "taskOrder": "PRIME-1",
+  "providerId": "intuitive-machines",
+  "landerModel": "Nova-C",
+  "targetRegion": "Mons Mouton (Lunar South Pole)",
+  "coordinates": {
+    "latitude": -84.6,
+    "longitude": 4.7,
+    "targetDescription": "Lunar south polar region near Mons Mouton"
   },
-  {
-    "id": "cp-11",
-    "name": "IM-3 (Rayyan)",
-    "taskOrder": "CP-11",
-    "providerId": "intuitive-machines",
-    "landerModel": "Nova-C",
-    "targetRegion": "Reiner Gamma",
-    "coordinates": {
-      "latitude": 7.5,
-      "longitude": -59.0,
-      "targetDescription": "Oceanus Procellarum lunar swirl and magnetic anomaly"
-    },
-    "launchDate": "2026-03-01",
-    "launchVehicle": "SpaceX Falcon 9",
-    "landingDate": null,
-    "status": "planned",
-    "statusLabel": "Planned (Target 2026)",
-    "nasaPayloadCount": 4,
-    "payloadIds": ["lunar-vertex", "cadre", "moonranger", "lra-cp11"],
-    "summary": "Exploration of the famous Reiner Gamma lunar swirl. Investigates localized crustal magnetic fields and solar wind shielding. Features NASA JPL's CADRE autonomous multi-rover cooperative swarm demonstration.",
-    "scientificObjectives": "Origin of lunar swirls, crustal magnetism, and autonomous multi-agent cooperative surface robotics.",
-    "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/cp-11/"
+  "launchDate": "2025-02-26",
+  "launchVehicle": "SpaceX Falcon 9",
+  "landingDate": "2025-03-06",
+  "status": "landed_anomaly",
+  "statusLabel": "Landed (Anomaly / Mission Ended)",
+  "nasaPayloadCount": 3,
+  "payloadIds": [
+    "trident-drill",
+    "msolo-prime1",
+    "lra-prime1"
+  ],
+  "summary": "Intuitive Machines' IM-2 mission, carrying the PRIME-1 technology demonstration, landed near Mons Mouton on March 6, 2025. The Athena lander experienced a landing anomaly and came to rest in an unfavorable orientation, limiting surface operations. The mission demonstrated technologies intended to investigate lunar subsurface volatiles, including the TRIDENT drill and MSolo mass spectrometer.",
+  "scientificObjectives": "Demonstrate lunar subsurface drilling, investigate potential volatile resources, and characterize the lunar polar environment.",
+  "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/prime-1-im/"
+},
+{
+  "id": "cp-11",
+  "name": "IM-3",
+  "taskOrder": "CP-11",
+  "providerId": "intuitive-machines",
+  "landerModel": "Nova-C",
+  "targetRegion": "Reiner Gamma",
+  "coordinates": {
+    "latitude": 7.5,
+    "longitude": -59.0,
+    "targetDescription": "Oceanus Procellarum lunar swirl and magnetic anomaly"
   },
+  "launchDate": null,
+  "launchVehicle": "SpaceX Falcon 9",
+  "landingDate": null,
+  "status": "planned",
+  "statusLabel": "Planned (Target Window: 2027)",
+  "nasaPayloadCount": 4,
+  "payloadIds": [
+    "lunar-vertex",
+    "cadre",
+    "moonranger",
+    "lra-cp11"
+  ],
+  "summary": "Intuitive Machines' IM-3 mission is planned to explore the Reiner Gamma lunar swirl, investigating localized magnetic anomalies and their interaction with solar wind. The mission is also associated with autonomous surface mobility and cooperative robotic technology demonstrations. Its previously listed March 2026 launch date is outdated; the schedule has shifted into 2027 planning.",
+  "scientificObjectives": "Investigate the origin of lunar swirls, crustal magnetic fields, solar wind interactions, and autonomous multi-robot surface operations.",
+  "sourceUrl": "https://science.nasa.gov/lunar-science/clps-deliveries/cp-11/"
+},
   {
     "id": "cp-12",
     "name": "Team Draper APEX 1.0",
