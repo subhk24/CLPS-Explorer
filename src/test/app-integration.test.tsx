@@ -41,7 +41,7 @@ describe('App Redesign Full Integration Test Suite', () => {
 
     // 8. Section 6: Interactive 3D Selenography & Program Metrics
     expect(screen.getByRole('heading', { name: /explore clps touchdown sites in 3d space/i })).toBeInTheDocument();
-    expect(screen.getByText('17')).toBeInTheDocument(); // Deliveries awarded metric
+    expect(screen.getByText('13')).toBeInTheDocument(); // Catalogued deliveries metric
   });
 
   it('navigates to dedicated Mission Detail Page when a featured mission card is clicked', () => {
@@ -62,6 +62,7 @@ describe('App Redesign Full Integration Test Suite', () => {
 
     // Navigated to Missions Explorer
     expect(screen.getByRole('heading', { name: /clps delivery missions explorer/i })).toBeInTheDocument();
+    expect(screen.getByText(/showing 13 of 13 verified commercial deliveries/i)).toBeInTheDocument();
   });
 
   it('navigates across all tabs and dedicated detail pages seamlessly', () => {

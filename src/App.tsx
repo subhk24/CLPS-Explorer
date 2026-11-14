@@ -332,7 +332,7 @@ export const App: React.FC = () => {
                       Missions <span className="sr-only">— CLPS Delivery Missions Explorer</span>
                     </h1>
                     <p className="text-xs sm:text-sm text-zinc-400 mt-1 font-sans">
-                      Multi-faceted directory of all 17 fixed-price task orders awarded to American commercial providers.
+                      Multi-faceted directory of {allMissions.length} catalogued fixed-price task orders awarded to American commercial providers.
                     </p>
                   </div>
 

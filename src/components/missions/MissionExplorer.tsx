@@ -48,6 +48,19 @@ export const MissionExplorer: React.FC<MissionExplorerProps> = ({
   const allProviders = useMemo(() => getProviders(), []);
   const allPayloads = useMemo(() => getPayloads(), []);
 
+  // Derive category counts from the complete dataset, never from filtered results.
+  const missionCounts = useMemo(() => ({
+    total: allMissions.length,
+    landed: allMissions.filter((mission) =>
+      mission.status === 'landed_anomaly' ||
+      mission.status === 'landed_nominal' ||
+      mission.status === 'delivered'
+    ).length,
+    planned: allMissions.filter((mission) => mission.status === 'planned').length,
+    transitLoss: allMissions.filter((mission) => mission.status === 'transit_loss').length,
+    testing: allMissions.filter((mission) => mission.status === 'testing').length,
+  }), [allMissions]);
+
   // Update parent when any filter changes
   const notifyFilterChange = (updated: MissionFilterState) => {
     onFilterChange?.(updated);
@@ -252,11 +265,11 @@ export const MissionExplorer: React.FC<MissionExplorerProps> = ({
         {/* 2. Status Filter Tabs */}
         <div className="flex flex-wrap items-center gap-1.5" aria-label="Mission flight status">
           {[
-            { id: 'all', label: `All Deliveries (${allMissions.length})` },
-            { id: 'landed', label: 'Landed / Delivered (2)' },
-            { id: 'planned', label: 'Planned Windows (9)' },
-            { id: 'transit_loss', label: 'Transit Loss (1)' },
-            { id: 'testing', label: 'Flight Test (1)' },
+            { id: 'all', label: `All Deliveries (${missionCounts.total})` },
+            { id: 'landed', label: `Landed / Delivered (${missionCounts.landed})` },
+            { id: 'planned', label: `Planned Windows (${missionCounts.planned})` },
+            { id: 'transit_loss', label: `Transit Loss (${missionCounts.transitLoss})` },
+            { id: 'testing', label: `Flight Test (${missionCounts.testing})` },
           ].map((tab) => {
             const isActive = status === tab.id;
             return (

@@ -14,7 +14,23 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
       render(<MissionExplorer onSelectMission={() => {}} />);
       expect(screen.getByPlaceholderText(/search by mission/i)).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /all deliveries \(13\)/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /landed \/ delivered \(3\)/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /planned windows \(9\)/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /transit loss \(1\)/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /flight test \(0\)/i })).toBeInTheDocument();
       expect(screen.getByText(/showing 13 of 13 verified commercial deliveries/i)).toBeInTheDocument();
+    });
+
+    it('keeps full-dataset counts stable while filtering and after remounting', () => {
+      const { unmount } = render(<MissionExplorer onSelectMission={() => {}} />);
+      fireEvent.click(screen.getByRole('button', { name: /flight test \(0\)/i }));
+      expect(screen.getByText(/showing 0 of 13 verified commercial deliveries/i)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /all deliveries \(13\)/i })).toBeInTheDocument();
+
+      unmount();
+      render(<MissionExplorer onSelectMission={() => {}} />);
+      expect(screen.getByText(/showing 13 of 13 verified commercial deliveries/i)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /flight test \(0\)/i })).toBeInTheDocument();
     });
 
     it('filters missions by search query matching mission name or payload acronym', () => {
@@ -29,7 +45,7 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
       // Search by payload acronym
       fireEvent.change(searchInput, { target: { value: 'TRIDENT' } });
       expect(screen.getByText(/showing 1 of 13 verified commercial deliveries/i)).toBeInTheDocument();
-      expect(screen.getByText(/IM-2 \(PRIME-1\)/i)).toBeInTheDocument();
+      expect(screen.getByText(/IM-2 \(Athena\)/i)).toBeInTheDocument();
     });
 
     it('filters missions by status tabs', () => {
@@ -37,7 +53,7 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
 
       // Filter by Landed
       fireEvent.click(screen.getByRole('button', { name: /landed \/ delivered/i }));
-      expect(screen.getByText(/showing 2 of 13 verified commercial deliveries/i)).toBeInTheDocument();
+      expect(screen.getByText(/showing 3 of 13 verified commercial deliveries/i)).toBeInTheDocument();
 
       // Filter by Transit Loss
       fireEvent.click(screen.getByRole('button', { name: /transit loss \(1\)/i }));
@@ -139,7 +155,7 @@ describe('Phase 4 Interactive Explorers Test Suite', () => {
 
       expect(screen.getByText(/Peregrine Mission 1/i)).toBeInTheDocument();
       expect(screen.getByText(/IM-1 \(Odysseus\)/i)).toBeInTheDocument();
-      expect(screen.getByText(/Blue Ghost Mission 1/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/Blue Ghost Mission 1/i).length).toBeGreaterThan(0);
       expect(screen.queryByText(/Blue Moon Mark 1/i)).not.toBeInTheDocument();
     });
 

@@ -416,7 +416,7 @@ export const MissionDetailPage: React.FC<MissionDetailPageProps> = ({
               onClick={onBack}
               className="text-xs font-mono text-[#E03C31] hover:underline font-bold flex items-center gap-1"
             >
-              <span>View All 13 Missions</span>
+              <span>View All {allMissions.length} Missions</span>
               <NasaRedArrow size="sm" />
             </button>
           </div>

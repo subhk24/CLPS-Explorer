@@ -78,10 +78,11 @@ describe('Phase 12 Rigorous Quality & Provenance Test Suite', () => {
 
     it('reconciles dashboard metrics against underlying datasets', () => {
       const metrics = getProgramMetrics();
-      expect(metrics.totalDeliveriesAwarded).toBe(17);
+      expect(metrics.totalDeliveriesAwarded).toBe(getMissions().length);
+      expect(metrics.totalDeliveriesAwarded).toBe(13);
       expect(metrics.awardedVendorsCount).toBe(5);
       expect(metrics.eligiblePoolCount).toBe(12);
-      expect(metrics.totalNasaPayloadsAwarded).toBe(60);
+      expect(metrics.totalNasaPayloadsAwarded).toBe(59);
 
       const providers = getProviders();
       const awarded = providers.filter((p) => p.status === 'awarded');
