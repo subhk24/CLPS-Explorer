@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import { ExternalLink, ShieldCheck, Database, Info, Globe, Rocket } from 'lucide-react';
 import { Container } from '../common/Container';
 
@@ -9,7 +10,7 @@ export interface FooterProps {
 const ClpsLogo: React.FC<{ className?: string }> = ({ className = 'w-12 h-12' }) => (
   <div className={`relative shrink-0 overflow-hidden rounded-lg border border-white/20 bg-[#030f29] shadow-sm ${className}`}>
     <img
-      src="/images/clps-logo.png"
+      src={publicAssetUrl('/images/clps-logo.png')}
       alt="CLPS Explorer Insignia"
       className="w-full h-full object-cover"
     />

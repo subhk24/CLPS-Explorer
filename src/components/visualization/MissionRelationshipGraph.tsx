@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import {
   Rocket,
   Layers,
@@ -342,7 +343,7 @@ export const MissionRelationshipGraph: React.FC<MissionRelationshipGraphProps> =
           >
             <div className="relative h-20 w-full overflow-hidden bg-black/40">
               <img
-                src="/images/destinations/moon-south-pole.jpg"
+                src={publicAssetUrl('/images/destinations/moon-south-pole.jpg')}
                 alt="NASA Science Objective"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-90"
                 loading="lazy"
@@ -570,7 +571,7 @@ export const MissionRelationshipGraph: React.FC<MissionRelationshipGraphProps> =
           >
             <div className="relative h-20 w-full overflow-hidden bg-black/40">
               <img
-                src="/images/destinations/malapert-a.jpg"
+                src={publicAssetUrl('/images/destinations/malapert-a.jpg')}
                 alt="Scientific Outcome"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-90"
                 loading="lazy"

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import {
   ShieldCheck,
   Play,
@@ -274,8 +275,8 @@ export const SourcesExplorer: React.FC = () => {
                   className="w-full h-full object-cover"
                   aria-label="Lunar surface flyover visualization by NASA LROC"
                 >
-                  <source src="/videos/nasa-hero.mp4" type="video/mp4" />
-                  <source src="/videos/lunar-tour.mp4" type="video/mp4" />
+                  <source src={publicAssetUrl('/videos/nasa-hero.mp4')} type="video/mp4" />
+                  <source src={publicAssetUrl('/videos/lunar-tour.mp4')} type="video/mp4" />
                 </video>
 
                 {/* Subtle dark gradient overlay at bottom of video */}

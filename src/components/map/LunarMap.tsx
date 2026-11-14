@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import {
   Globe,
   Compass,
@@ -119,17 +120,17 @@ export const LunarMap: React.FC<LunarMapProps> = ({
 
   // Format destination image
   const destinationImageMap: Record<string, string> = {
-    'malapert-a': '/images/destinations/malapert-a.jpg',
-    'mare-crisium': '/images/destinations/mare-crisium.jpg',
-    'shackleton-connecting-ridge': '/images/destinations/shackleton.jpg',
-    'gruithuisen-domes': '/images/destinations/gruithuisen-domes.jpg',
-    'schrodinger-basin': '/images/destinations/moon-south-pole.jpg',
-    'reiner-gamma': '/images/missions/cp-11.jpg',
-    'haworth-crater': '/images/destinations/moon-south-pole.jpg',
-    'mons-mouton': '/images/missions/to20a.jpg',
+    'malapert-a': publicAssetUrl('/images/destinations/malapert-a.jpg'),
+    'mare-crisium': publicAssetUrl('/images/destinations/mare-crisium.jpg'),
+    'shackleton-connecting-ridge': publicAssetUrl('/images/destinations/shackleton.jpg'),
+    'gruithuisen-domes': publicAssetUrl('/images/destinations/gruithuisen-domes.jpg'),
+    'schrodinger-basin': publicAssetUrl('/images/destinations/moon-south-pole.jpg'),
+    'reiner-gamma': publicAssetUrl('/images/missions/cp-11.jpg'),
+    'haworth-crater': publicAssetUrl('/images/destinations/moon-south-pole.jpg'),
+    'mons-mouton': publicAssetUrl('/images/missions/to20a.jpg'),
   };
 
-  const currentDestinationImg = destinationImageMap[selectedSite?.id || ''] || '/images/destinations/moon-south-pole.jpg';
+  const currentDestinationImg = destinationImageMap[selectedSite?.id || ''] || publicAssetUrl('/images/destinations/moon-south-pole.jpg');
 
   const renderSiteDetailPanel = () => {
     if (!selectedSite) return null;

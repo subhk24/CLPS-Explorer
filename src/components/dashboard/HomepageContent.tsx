@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import { Orbit, ArrowRight } from 'lucide-react';
 import { Container } from '../common/Container';
 import { NasaPortraitCard } from '../common/NasaPortraitCard';
@@ -46,27 +47,27 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
       id: 'gallery-payloads',
       title: 'NASA Scientific Payloads Gallery',
       countLabel: '28 Flight Instruments',
-      primaryImage: '/images/payloads/ndl.jpg',
-      secondaryImage1: '/images/payloads/scalpss.jpg',
-      secondaryImage2: '/images/payloads/trident.jpg',
+      primaryImage: publicAssetUrl('/images/payloads/ndl.jpg'),
+      secondaryImage1: publicAssetUrl('/images/payloads/scalpss.jpg'),
+      secondaryImage2: publicAssetUrl('/images/payloads/trident.jpg'),
       onClick: () => onNavigateTab('payloads'),
     },
     {
       id: 'gallery-sites',
       title: 'Lunar Touchdown Sites Selenography',
       countLabel: '8 Verified Regions',
-      primaryImage: '/images/destinations/malapert-a.jpg',
-      secondaryImage1: '/images/destinations/mare-crisium.jpg',
-      secondaryImage2: '/images/destinations/gruithuisen-domes.jpg',
+      primaryImage: publicAssetUrl('/images/destinations/malapert-a.jpg'),
+      secondaryImage1: publicAssetUrl('/images/destinations/mare-crisium.jpg'),
+      secondaryImage2: publicAssetUrl('/images/destinations/gruithuisen-domes.jpg'),
       onClick: () => onNavigateTab('map'),
     },
     {
       id: 'gallery-providers',
       title: 'Commercial Lunar Lander Fleet',
       countLabel: '13 Aerospace Contractors',
-      primaryImage: '/images/providers/firefly.jpg',
-      secondaryImage1: '/images/providers/intuitive-machines.jpg',
-      secondaryImage2: '/images/providers/astrobotic.jpg',
+      primaryImage: publicAssetUrl('/images/providers/firefly.jpg'),
+      secondaryImage1: publicAssetUrl('/images/providers/intuitive-machines.jpg'),
+      secondaryImage2: publicAssetUrl('/images/providers/astrobotic.jpg'),
       onClick: () => onNavigateTab('providers'),
     },
   ];
@@ -160,7 +161,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               category="Archival Field Report // Task Order 2-IM"
               metadata="Intuitive Machines • Nova-C Class • Landed Feb 22, 2024 at 80.12° S"
               summary="On February 22, 2024, Intuitive Machines completed the first commercial lunar soft landing in human history and the first American lunar touchdown since Apollo 17. Live velocity telemetry from NASA's Navigation Doppler Lidar (NDL) guided Odysseus to the South Polar highlands."
-              imageUrl="/images/missions/to2-im.jpg"
+              imageUrl={publicAssetUrl('/images/missions/to2-im.jpg')}
               onClick={() => onSelectMission(im1)}
             />
           )}
@@ -199,7 +200,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
         title="Explore the Universe from the Lunar Surface"
         subtitle="Artemis Lunar Architecture"
         description="NASA's Commercial Lunar Payload Services initiative contracts American aerospace providers to deliver science instruments and technology directly to the Moon, preparing for sustained human exploration."
-        imageUrl="/images/destinations/moon-south-pole.jpg"
+        imageUrl={publicAssetUrl('/images/destinations/moon-south-pole.jpg')}
         actionText="Open 3D Selenography Atlas"
         onAction={() => onNavigateTab('map')}
       />
@@ -230,7 +231,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="Missions"
                 subtitle="13 FIXED-PRICE DELIVERIES"
-                imageUrl="/images/missions/to19d.jpg"
+                imageUrl={publicAssetUrl('/images/missions/to19d.jpg')}
                 aspectRatio="tall"
                 onClick={() => onNavigateTab('missions')}
               />
@@ -238,7 +239,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="Landing Sites"
                 subtitle="8 VERIFIED SURFACE SITES"
-                imageUrl="/images/destinations/malapert-a.jpg"
+                imageUrl={publicAssetUrl('/images/destinations/malapert-a.jpg')}
                 aspectRatio="tall"
                 onClick={() => onNavigateTab('map')}
               />
@@ -246,7 +247,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="Science Payloads"
                 subtitle="28 NASA INSTRUMENTS"
-                imageUrl="/images/payloads/ndl.jpg"
+                imageUrl={publicAssetUrl('/images/payloads/ndl.jpg')}
                 aspectRatio="tall"
                 onClick={() => onNavigateTab('payloads')}
               />
@@ -254,7 +255,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="Commercial Providers"
                 subtitle="13 AEROSPACE CONTRACTORS"
-                imageUrl="/images/providers/intuitive-machines.jpg"
+                imageUrl={publicAssetUrl('/images/providers/intuitive-machines.jpg')}
                 aspectRatio="tall"
                 onClick={() => onNavigateTab('providers')}
               />
@@ -262,7 +263,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="CADRE Rover Swarm"
                 subtitle="AUTONOMOUS COOPERATIVE ROBOTICS"
-                imageUrl="/images/payloads/cadre.jpg"
+                imageUrl={publicAssetUrl('/images/payloads/cadre.jpg')}
                 aspectRatio="tall"
                 onClick={() => onSelectPayload('cadre')}
               />
@@ -270,7 +271,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="LuSEE-Night"
                 subtitle="FAR SIDE DARK AGES TELESCOPE"
-                imageUrl="/images/payloads/lusee-night.jpg"
+                imageUrl={publicAssetUrl('/images/payloads/lusee-night.jpg')}
                 aspectRatio="tall"
                 onClick={() => onSelectPayload('lusee-night')}
               />
@@ -278,7 +279,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="TRIDENT Ice Drill"
                 subtitle="CRYOGENIC PERMAFROST DRILL"
-                imageUrl="/images/payloads/trident.jpg"
+                imageUrl={publicAssetUrl('/images/payloads/trident.jpg')}
                 aspectRatio="tall"
                 onClick={() => onSelectPayload('trident')}
               />
@@ -286,7 +287,7 @@ export const HomepageContent: React.FC<HomepageContentProps> = ({
               <NasaPortraitCard
                 title="Flight Continuum"
                 subtitle="2024–2028 CHRONOLOGY"
-                imageUrl="/images/missions/cs-3.jpg"
+                imageUrl={publicAssetUrl('/images/missions/cs-3.jpg')}
                 aspectRatio="tall"
                 onClick={() => onNavigateTab('timeline')}
               />

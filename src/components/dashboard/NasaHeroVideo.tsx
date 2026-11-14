@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import { Play, Pause, ArrowRight, Globe, Rocket, AlertCircle } from 'lucide-react';
 import { Container } from '../common/Container';
 import { NasaRedArrow } from '../common/NasaRedArrow';
@@ -155,7 +156,7 @@ export const NasaHeroVideo: React.FC<NasaHeroVideoProps> = ({
           }`}
           aria-label="NASA Lunar Exploration flight trajectory video background"
         >
-          <source src="/videos/nasa-hero.mp4" type="video/mp4" />
+          <source src={publicAssetUrl('/videos/nasa-hero.mp4')} type="video/mp4" />
         </video>
 
         {/* 2. NASA.GOV VIGNETTE & SKRIM OVERLAYS */}

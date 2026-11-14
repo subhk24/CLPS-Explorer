@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { publicAssetUrl } from '../../utils/publicAssetUrl';
 import { Menu, X, Compass, Rocket, Layers, Globe, Clock, Building2, ShieldCheck } from 'lucide-react';
 
 export interface NavbarProps {
@@ -10,7 +11,7 @@ export interface NavbarProps {
 const ClpsLogo: React.FC<{ className?: string }> = ({ className = 'w-9 h-9' }) => (
   <div className={`relative shrink-0 overflow-hidden rounded-lg border border-white/20 bg-[#030f29] shadow-sm ${className}`}>
     <img
-      src="/images/clps-logo.png"
+      src={publicAssetUrl('/images/clps-logo.png')}
       alt="CLPS Explorer Insignia"
       className="w-full h-full object-cover"
     />

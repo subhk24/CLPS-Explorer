@@ -1,3 +1,5 @@
+import { publicAssetUrl } from '../utils/publicAssetUrl';
+
 /**
  * CLPS Explorer Scientific Imagery & Attribution Registry
  *
@@ -33,7 +35,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Intuitive Machines',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/',
-    imageUrl: '/images/missions/to2-im.jpg',
+    imageUrl: publicAssetUrl('/images/missions/to2-im.jpg'),
     fallbackSvgType: 'lander',
   },
   'to2-ab': {
@@ -43,7 +45,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Isaac Watson (KSC)',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-astrobotic/',
-    imageUrl: '/images/missions/to2-ab.jpg',
+    imageUrl: publicAssetUrl('/images/missions/to2-ab.jpg'),
     fallbackSvgType: 'lander',
   },
   'to19d': {
@@ -53,7 +55,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Cory Huston (KSC) / Firefly Aerospace',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/missions/to19d.jpg',
+    imageUrl: publicAssetUrl('/images/missions/to19d.jpg'),
     fallbackSvgType: 'lander',
   },
   'prime-1': {
@@ -63,7 +65,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Frank Michaux (KSC) / Honeybee Robotics',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/prime-1-im/',
-    imageUrl: '/images/missions/prime-1.jpg',
+    imageUrl: publicAssetUrl('/images/missions/prime-1.jpg'),
     fallbackSvgType: 'rover',
   },
   'to20a': {
@@ -73,7 +75,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Ames Research Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to20a-astrobotic/',
-    imageUrl: '/images/missions/to20a.jpg',
+    imageUrl: publicAssetUrl('/images/missions/to20a.jpg'),
     fallbackSvgType: 'rover',
   },
   'cp-11': {
@@ -83,7 +85,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / JPL-Caltech',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-11/',
-    imageUrl: '/images/missions/cp-11.jpg',
+    imageUrl: publicAssetUrl('/images/missions/cp-11.jpg'),
     fallbackSvgType: 'rover',
   },
   'cp-12': {
@@ -93,7 +95,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Draper Laboratory',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-12-draper/',
-    imageUrl: '/images/missions/cp-12.jpg',
+    imageUrl: publicAssetUrl('/images/missions/cp-12.jpg'),
     fallbackSvgType: 'lander',
   },
   'cs-3': {
@@ -103,7 +105,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / DOE / Brookhaven National Lab',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cs-3/',
-    imageUrl: '/images/missions/cs-3.jpg',
+    imageUrl: publicAssetUrl('/images/missions/cs-3.jpg'),
     fallbackSvgType: 'lander',
   },
   'cs-34': {
@@ -113,7 +115,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / JPL-Caltech / Firefly Aerospace',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cs-34-firefly/',
-    imageUrl: '/images/missions/cs-3.jpg',
+    imageUrl: publicAssetUrl('/images/missions/cs-3.jpg'),
     fallbackSvgType: 'lander',
   },
   'cp-21': {
@@ -123,7 +125,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'Firefly Aerospace / NASA',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-21-firefly/',
-    imageUrl: '/images/missions/cp-21.png',
+    imageUrl: publicAssetUrl('/images/missions/cp-21.png'),
     fallbackSvgType: 'lander',
   },
   'cp-22': {
@@ -133,7 +135,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Kennedy Space Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-22-science/',
-    imageUrl: '/images/missions/cp-22.jpg',
+    imageUrl: publicAssetUrl('/images/missions/cp-22.jpg'),
     fallbackSvgType: 'lander',
   },
   'ct-3': {
@@ -143,7 +145,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Blue Origin',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/ct-3-science/',
-    imageUrl: '/images/missions/ct-3.jpg',
+    imageUrl: publicAssetUrl('/images/missions/ct-3.jpg'),
     fallbackSvgType: 'lander',
   },
   'cs-6': {
@@ -153,7 +155,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'Firefly Aerospace / NASA',
     sourceUrl: 'https://science.nasa.gov/lunar-science/programs/clps/cs-6-science/',
-    imageUrl: '/images/missions/cs-6.png',
+    imageUrl: publicAssetUrl('/images/missions/cs-6.png'),
     fallbackSvgType: 'lander',
   },
   'ct-4': {
@@ -163,7 +165,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Kim Shiflett (KSC) / Intuitive Machines',
     sourceUrl: 'https://science.nasa.gov/lunar-discovery/deliveries/',
-    imageUrl: '/images/missions/ct-4.jpg',
+    imageUrl: publicAssetUrl('/images/missions/ct-4.jpg'),
     fallbackSvgType: 'lander',
   },
 
@@ -175,7 +177,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'scientific_visualization',
     credit: 'NASA Goddard Space Flight Center / LOLA Science Team',
     sourceUrl: 'https://www.lroc.asu.edu/posts/1359',
-    imageUrl: '/images/destinations/malapert-a.jpg',
+    imageUrl: publicAssetUrl('/images/destinations/malapert-a.jpg'),
     fallbackSvgType: 'crater',
   },
   'mare-crisium': {
@@ -185,7 +187,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / LROC / Arizona State University',
     sourceUrl: 'https://www.lroc.asu.edu',
-    imageUrl: '/images/destinations/mare-crisium.jpg',
+    imageUrl: publicAssetUrl('/images/destinations/mare-crisium.jpg'),
     fallbackSvgType: 'crater',
   },
   'shackleton-connecting-ridge': {
@@ -195,7 +197,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'scientific_visualization',
     credit: 'NASA / LROC / ASU',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/prime-1-im/',
-    imageUrl: '/images/destinations/shackleton.jpg',
+    imageUrl: publicAssetUrl('/images/destinations/shackleton.jpg'),
     fallbackSvgType: 'crater',
   },
   'gruithuisen-domes': {
@@ -205,7 +207,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / LROC / ASU',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-21-firefly/',
-    imageUrl: '/images/destinations/gruithuisen-domes.jpg',
+    imageUrl: publicAssetUrl('/images/destinations/gruithuisen-domes.jpg'),
     fallbackSvgType: 'crater',
   },
   'schrodinger-basin': {
@@ -215,7 +217,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'scientific_visualization',
     credit: 'NASA / Goddard / LOLA / LROC',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-12-draper/',
-    imageUrl: '/images/destinations/moon-south-pole.jpg',
+    imageUrl: publicAssetUrl('/images/destinations/moon-south-pole.jpg'),
     fallbackSvgType: 'crater',
   },
 
@@ -227,7 +229,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Intuitive Machines',
     sourceUrl: 'https://www.intuitivemachines.com',
-    imageUrl: '/images/providers/intuitive-machines.jpg',
+    imageUrl: publicAssetUrl('/images/providers/intuitive-machines.jpg'),
     fallbackSvgType: 'lander',
   },
   'firefly': {
@@ -237,7 +239,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Firefly Aerospace',
     sourceUrl: 'https://fireflyspace.com',
-    imageUrl: '/images/providers/firefly.jpg',
+    imageUrl: publicAssetUrl('/images/providers/firefly.jpg'),
     fallbackSvgType: 'lander',
   },
   'astrobotic': {
@@ -247,7 +249,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Isaac Watson (KSC) / Astrobotic',
     sourceUrl: 'https://www.astrobotic.com',
-    imageUrl: '/images/providers/astrobotic.jpg',
+    imageUrl: publicAssetUrl('/images/providers/astrobotic.jpg'),
     fallbackSvgType: 'lander',
   },
   'draper': {
@@ -257,7 +259,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Team Draper / ispace-U.S.',
     sourceUrl: 'https://www.draper.com',
-    imageUrl: '/images/providers/draper.jpg',
+    imageUrl: publicAssetUrl('/images/providers/draper.jpg'),
     fallbackSvgType: 'lander',
   },
   'blue-origin': {
@@ -267,7 +269,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Blue Origin',
     sourceUrl: 'https://www.blueorigin.com',
-    imageUrl: '/images/providers/blue-origin.jpg',
+    imageUrl: publicAssetUrl('/images/providers/blue-origin.jpg'),
     fallbackSvgType: 'lander',
   },
   'spacex': {
@@ -277,7 +279,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / SpaceX',
     sourceUrl: 'https://www.spacex.com',
-    imageUrl: '/images/providers/spacex.jpg',
+    imageUrl: publicAssetUrl('/images/providers/spacex.jpg'),
     fallbackSvgType: 'lander',
   },
   'lockheed-martin': {
@@ -287,7 +289,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Lockheed Martin Space',
     sourceUrl: 'https://www.lockheedmartin.com',
-    imageUrl: '/images/providers/lockheed-martin.jpg',
+    imageUrl: publicAssetUrl('/images/providers/lockheed-martin.jpg'),
     fallbackSvgType: 'lander',
   },
   'sierra-space': {
@@ -297,7 +299,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Sierra Space',
     sourceUrl: 'https://www.sierraspace.com',
-    imageUrl: '/images/providers/sierra-space.jpg',
+    imageUrl: publicAssetUrl('/images/providers/sierra-space.jpg'),
     fallbackSvgType: 'lander',
   },
   'ceres-robotics': {
@@ -307,7 +309,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Ceres Robotics',
     sourceUrl: 'https://www.ceresrobotics.com',
-    imageUrl: '/images/providers/ceres-robotics.jpg',
+    imageUrl: publicAssetUrl('/images/providers/ceres-robotics.jpg'),
     fallbackSvgType: 'lander',
   },
   'deep-space-systems': {
@@ -317,7 +319,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Deep Space Systems / Redwire Space',
     sourceUrl: 'https://redwirespace.com',
-    imageUrl: '/images/providers/deep-space-systems.jpg',
+    imageUrl: publicAssetUrl('/images/providers/deep-space-systems.jpg'),
     fallbackSvgType: 'lander',
   },
   'moon-express': {
@@ -327,7 +329,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Moon Express',
     sourceUrl: 'https://www.moonexpress.com',
-    imageUrl: '/images/providers/moon-express.jpg',
+    imageUrl: publicAssetUrl('/images/providers/moon-express.jpg'),
     fallbackSvgType: 'lander',
   },
   'tyvak': {
@@ -337,7 +339,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Terran Orbital / Tyvak',
     sourceUrl: 'https://www.terranorbital.com',
-    imageUrl: '/images/providers/tyvak.jpg',
+    imageUrl: publicAssetUrl('/images/providers/tyvak.jpg'),
     fallbackSvgType: 'lander',
   },
   'masten': {
@@ -347,7 +349,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Masten Space Systems / Astrobotic',
     sourceUrl: 'https://www.astrobotic.com',
-    imageUrl: '/images/providers/masten.jpg',
+    imageUrl: publicAssetUrl('/images/providers/masten.jpg'),
     fallbackSvgType: 'lander',
   },
 
@@ -359,7 +361,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Goddard Space Flight Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-astrobotic/',
-    imageUrl: '/images/payloads/lra.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lra.jpg'),
     fallbackSvgType: 'payload',
   },
   'lra-to2im': {
@@ -369,7 +371,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Goddard Space Flight Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/',
-    imageUrl: '/images/payloads/lra.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lra.jpg'),
     fallbackSvgType: 'payload',
   },
   'lra': {
@@ -379,7 +381,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Goddard Space Flight Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/',
-    imageUrl: '/images/payloads/lra.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lra.jpg'),
     fallbackSvgType: 'payload',
   },
   'nss': {
@@ -389,7 +391,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Ames Research Center / Dominic Hart',
     sourceUrl: 'https://www.nasa.gov/ames/nss/',
-    imageUrl: '/images/payloads/nss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/nss.jpg'),
     fallbackSvgType: 'payload',
   },
   'lets': {
@@ -399,7 +401,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Johnson Space Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-astrobotic/',
-    imageUrl: '/images/payloads/lets.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lets.jpg'),
     fallbackSvgType: 'payload',
   },
   'nirvss': {
@@ -409,7 +411,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Ames Research Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-astrobotic/',
-    imageUrl: '/images/payloads/nirvss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/nirvss.jpg'),
     fallbackSvgType: 'payload',
   },
   'pitms': {
@@ -419,7 +421,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA GSFC / European Space Agency (ESA)',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-astrobotic/',
-    imageUrl: '/images/payloads/pitms.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/pitms.jpg'),
     fallbackSvgType: 'payload',
   },
   'ln-1': {
@@ -429,7 +431,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Marshall Space Flight Center',
     sourceUrl: 'https://www.nasa.gov/marshall/',
-    imageUrl: '/images/payloads/ln1.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/ln1.jpg'),
     fallbackSvgType: 'payload',
   },
   'ln1': {
@@ -439,7 +441,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Marshall Space Flight Center',
     sourceUrl: 'https://www.nasa.gov/marshall/',
-    imageUrl: '/images/payloads/ln1.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/ln1.jpg'),
     fallbackSvgType: 'payload',
   },
   'scalpss': {
@@ -449,7 +451,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Langley Research Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/',
-    imageUrl: '/images/payloads/scalpss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/scalpss.jpg'),
     fallbackSvgType: 'payload',
   },
   'scalpss-11': {
@@ -459,7 +461,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Langley Research Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/scalpss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/scalpss.jpg'),
     fallbackSvgType: 'payload',
   },
   'rolses': {
@@ -469,7 +471,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Goddard Space Flight Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/',
-    imageUrl: '/images/payloads/rolses.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/rolses.jpg'),
     fallbackSvgType: 'payload',
   },
   'ndl': {
@@ -479,7 +481,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Langley Research Center / Masten Flight Test',
     sourceUrl: 'https://www.nasa.gov/langley/ndl/',
-    imageUrl: '/images/payloads/ndl.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/ndl.jpg'),
     fallbackSvgType: 'payload',
   },
   'rfmg': {
@@ -489,7 +491,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Glenn Research Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to2-im/',
-    imageUrl: '/images/payloads/rfmg.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/rfmg.jpg'),
     fallbackSvgType: 'payload',
   },
   'nglr': {
@@ -499,7 +501,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / University of Maryland / Douglas Currie',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/nglr.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/nglr.jpg'),
     fallbackSvgType: 'payload',
   },
   'radpc': {
@@ -509,7 +511,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'Montana State University / NASA EPSCoR',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/radpc.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/radpc.jpg'),
     fallbackSvgType: 'payload',
   },
   'rac': {
@@ -519,7 +521,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Alpha Space / Aegis Aerospace',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/rac.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/rac.jpg'),
     fallbackSvgType: 'payload',
   },
   'lms': {
@@ -529,7 +531,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Southwest Research Institute',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/lms.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lms.jpg'),
     fallbackSvgType: 'payload',
   },
   'lexi': {
@@ -539,7 +541,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Goddard / Boston University / SVS',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/lexi.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lexi.jpg'),
     fallbackSvgType: 'payload',
   },
   'lpv': {
@@ -549,7 +551,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Honeybee Robotics / AFRC',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/lpv.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lpv.jpg'),
     fallbackSvgType: 'payload',
   },
   'lister': {
@@ -559,7 +561,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Texas Tech University / Seiichi Nagihara',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/lister.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lister.jpg'),
     fallbackSvgType: 'payload',
   },
   'eds': {
@@ -569,7 +571,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Kennedy Space Center',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/eds.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/eds.jpg'),
     fallbackSvgType: 'payload',
   },
   'lugre': {
@@ -579,7 +581,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Italian Space Agency (ASI)',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/to19d-firefly/',
-    imageUrl: '/images/payloads/lugre.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lugre.jpg'),
     fallbackSvgType: 'payload',
   },
   'trident-drill': {
@@ -589,7 +591,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Honeybee Robotics / KSC',
     sourceUrl: 'https://www.nasa.gov/mission/prime-1/',
-    imageUrl: '/images/payloads/trident.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/trident.jpg'),
     fallbackSvgType: 'payload',
   },
   'trident': {
@@ -599,7 +601,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Honeybee Robotics / KSC',
     sourceUrl: 'https://www.nasa.gov/mission/prime-1/',
-    imageUrl: '/images/payloads/trident.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/trident.jpg'),
     fallbackSvgType: 'payload',
   },
   'msolo': {
@@ -609,7 +611,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Kennedy Space Center',
     sourceUrl: 'https://www.nasa.gov/kennedy/',
-    imageUrl: '/images/payloads/msolo.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/msolo.jpg'),
     fallbackSvgType: 'payload',
   },
   'msolo-prime1': {
@@ -619,7 +621,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Kennedy Space Center',
     sourceUrl: 'https://www.nasa.gov/mission/prime-1/',
-    imageUrl: '/images/payloads/msolo.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/msolo.jpg'),
     fallbackSvgType: 'payload',
   },
   'lunar-vertex': {
@@ -629,7 +631,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / Johns Hopkins APL',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-11/',
-    imageUrl: '/images/payloads/lunar-vertex.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lunar-vertex.jpg'),
     fallbackSvgType: 'rover',
   },
   'cadre': {
@@ -639,7 +641,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Jet Propulsion Laboratory / Caltech',
     sourceUrl: 'https://www.jpl.nasa.gov/missions/cadre',
-    imageUrl: '/images/payloads/cadre.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/cadre.jpg'),
     fallbackSvgType: 'rover',
   },
   'fss-seismic': {
@@ -649,7 +651,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / JPL-Caltech',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cs-34-firefly/',
-    imageUrl: '/images/payloads/fss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/fss.jpg'),
     fallbackSvgType: 'payload',
   },
   'fss': {
@@ -659,7 +661,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / JPL-Caltech',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cs-34-firefly/',
-    imageUrl: '/images/payloads/fss.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/fss.jpg'),
     fallbackSvgType: 'payload',
   },
   'lusee-night': {
@@ -669,7 +671,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / DOE / Brookhaven National Laboratory',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cs-3/',
-    imageUrl: '/images/payloads/lusee-night.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lusee-night.jpg'),
     fallbackSvgType: 'payload',
   },
   'lunar-vise': {
@@ -679,7 +681,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA / University of Central Florida / Ball Aerospace',
     sourceUrl: 'https://science.nasa.gov/lunar-science/clps-deliveries/cp-21-firefly/',
-    imageUrl: '/images/payloads/lunar-vise.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/lunar-vise.jpg'),
     fallbackSvgType: 'payload',
   },
   'viper': {
@@ -689,7 +691,7 @@ export const IMAGERY_REGISTRY: Record<string, ImageRecord> = {
     imageType: 'photograph',
     credit: 'NASA Ames Research Center',
     sourceUrl: 'https://www.nasa.gov/viper/',
-    imageUrl: '/images/payloads/viper.jpg',
+    imageUrl: publicAssetUrl('/images/payloads/viper.jpg'),
     fallbackSvgType: 'rover',
   },
 };
@@ -732,45 +734,45 @@ export function getImageForEntity(id: string, fallbackTitle?: string): ImageReco
   }
 
   // 5. Intelligent domain keyword routing
-  let defaultImg = '/images/payloads/nss.jpg';
+  let defaultImg = publicAssetUrl('/images/payloads/nss.jpg');
   let defaultCredit = 'NASA Science Mission Directorate';
   const defaultType: ImageType = 'scientific_visualization';
 
   if (lowerId.includes('drill') || lowerId.includes('trident')) {
-    defaultImg = '/images/payloads/trident.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/trident.jpg');
     defaultCredit = 'NASA / Honeybee Robotics';
   } else if (lowerId.includes('rover') || lowerId.includes('cadre') || lowerId.includes('viper')) {
-    defaultImg = '/images/payloads/cadre.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/cadre.jpg');
     defaultCredit = 'NASA Jet Propulsion Laboratory';
   } else if (lowerId.includes('lidar') || lowerId.includes('ndl')) {
-    defaultImg = '/images/payloads/ndl.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/ndl.jpg');
     defaultCredit = 'NASA Langley Research Center';
   } else if (lowerId.includes('laser') || lowerId.includes('retroreflector') || lowerId.includes('lra') || lowerId.includes('nglr')) {
-    defaultImg = '/images/payloads/lra.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/lra.jpg');
     defaultCredit = 'NASA Goddard Space Flight Center';
   } else if (lowerId.includes('camera') || lowerId.includes('plume') || lowerId.includes('scalpss')) {
-    defaultImg = '/images/payloads/scalpss.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/scalpss.jpg');
     defaultCredit = 'NASA Langley Research Center';
   } else if (lowerId.includes('radio') || lowerId.includes('rolses') || lowerId.includes('lusee')) {
-    defaultImg = '/images/payloads/lusee-night.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/lusee-night.jpg');
     defaultCredit = 'NASA / DOE / Brookhaven National Lab';
   } else if (lowerId.includes('x-ray') || lowerId.includes('lexi')) {
-    defaultImg = '/images/payloads/lexi.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/lexi.jpg');
     defaultCredit = 'NASA Goddard / Boston University';
   } else if (lowerId.includes('thermal') || lowerId.includes('lister')) {
-    defaultImg = '/images/payloads/lister.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/lister.jpg');
     defaultCredit = 'NASA / Texas Tech University';
   } else if (lowerId.includes('seismic') || lowerId.includes('fss')) {
-    defaultImg = '/images/payloads/fss.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/fss.jpg');
     defaultCredit = 'NASA / JPL-Caltech';
   } else if (lowerId.includes('dust') || lowerId.includes('eds')) {
-    defaultImg = '/images/payloads/eds.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/eds.jpg');
     defaultCredit = 'NASA Kennedy Space Center';
   } else if (lowerId.includes('nav') || lowerId.includes('beacon') || lowerId.includes('ln1') || lowerId.includes('ln-1')) {
-    defaultImg = '/images/payloads/ln1.jpg';
+    defaultImg = publicAssetUrl('/images/payloads/ln1.jpg');
     defaultCredit = 'NASA Marshall Space Flight Center';
   } else if (lowerId.includes('site') || lowerId.includes('crater') || lowerId.includes('dome')) {
-    defaultImg = '/images/destinations/mare-crisium.jpg';
+    defaultImg = publicAssetUrl('/images/destinations/mare-crisium.jpg');
     defaultCredit = 'NASA / LROC / ASU';
   }
 
